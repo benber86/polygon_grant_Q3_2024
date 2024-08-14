@@ -112,7 +112,7 @@ Problems We're Solving:
 
 2. Contract Bloat: Other compilers often produce contracts with bloated bytecode and gas costs that are higher than they should be. Thanks to a highly optimized backend, Vyper already consistently produces binaries 50% smaller than Solidity, with significantly lower gas consumption (https://blog.chain.link/solidity-vs-vyper/, https://github.com/z80dev/gascomps, https://github.com/benber86/vyper_bytecode) and we will continue to improve this headstart.
 
-3. Language Diversity: Most EVM smart contracts are written in Solidity which is a strong centralization vector and security risk. Vyper is currently the only real alternative 
+3. Language Centralization: Most EVM smart contracts are written in Solidity which is a strong centralization vector and security risk. Vyper is currently the only real alternative 
 
 4. Developer Onboarding: Vyper's pythonic syntax makes it easy to onboard new developers to web3, as Python is now the most popular programming language (Stack Overflow survey 2024, https://survey.stackoverflow.co/2024/). A recent Twitter poll with 164 participants showed that a majority of developers would pick Vyper and Ape over Solidity and Foundry to start a new project (https://x.com/0xKoga/status/1805524364948893756).
 
@@ -141,37 +141,62 @@ Vyper is used by Curve ($18m TVL on Polygon: https://defillama.com/protocol/curv
 
 Vyper's main competitors are other smart contract programming language such as Solidity, Fe and Yul. Vyper differs by its focus on readability, security and simplicity. Vyper is designed to make contract maximally human readable. This translates in a direct reduction (-20% according to auditors) of the time and costs of auditing Vyper contracts. Simplicity translates to more optimized contracts, which have, on average 50% smaller bytecode and less gas costs. Vyper's simple, pythonic syntax and the absence of footguns (operator and function overloading, class inheritance, etc.) makes it easy to onboard new developers already familiar with Python.
 
-### Please describe your target user, and user acquisition strategy*
+### Please describe your target user, and user acquisition strategy
+
+We are targeting smart contract developers and new developers interested in transitioning to web3. Our user acquisition strategy currently consists of:
+
+- Outreach: Attending web3 conferences and organizing workshops to showcase Vyper's features. Supporting Vyper tutorials on YouTube and other social media platforms.
+- Tooling: We have worked tirelessly on developing new tooling to offer a superior developer experience compared to other smart contract programming languages.
 
 ### What is your vision on further funding steps once your grant scope is complete?*
 
+Vyper currently relies solely on grants to fund its development. We will continue to apply for grant after completion of the current scope to continue to fund the development of new features.
+
 ### Overview of the technology stack to be used*
+
+Vyper is written entirely in Python
 
 ### Is/Will your project be open sourced?*
 
+Vyper is open source and released under the permissive Apache license.
+
 ### How will the project contribute to the Polygon ecosystem?*
+
+- Enhanced Security: Vyper's design choices and stringent audit processes increase the security of smart contracts on Polygon, reducing the risk of exploits and vulnerabilities.
+- Language Diversity: Vyper contributes to language diversity in the Polygon ecosystem. This diversity is crucial as it reduces the risk of systemic failures that could arise from vulnerabilities in a single programming language. It also provides developers with more choices, allowing them to select the language that best fits their project needs and expertise.
+- Optimized Contracts: Vyper's compiler optimizations allow developers to create more complex contracts without hitting EVM size limits, improving overall contract efficiency.
+- Developer Ecosystem: By offering Python-like syntax, Vyper lowers the barrier to entry for smart contract development and can appeal to web2 developers already familiar with Python, fostering a larger developer community on Polygon.
+
 
 ### What is your research about, how does it expand Polygon, and how does it benefit the Ethereum ecosystem?
 
-Answer this question only if you're applying for a research grant.
+N/A
 
 ## Section 4: Grant details
 
 ### What is the size of your grant request? (Enter specific numeric POL Amount)*
 
-Grantees are free to submit their proposal with any grant amount they desire to secure; however, all grants above 50K POL will invite special scrutiny & diligence and will take a longer time frame to evaluate. (Enter numeric POL amount)
-
-Below are some example ranges you should be considering. Please note the specific amount you are requesting for your project.
-
-- 5,000-10,000 MATIC
-- 10,000-30,000 MATIC
-- 30,000-50,000 MATIC
-- 50,000+ MATIC
+50,000 MATIC
 
 ### How do you plan on allocating funds?*
 
-How do you plan on allocating funds? (2-4 sentences on your planned use of funds (e.g. roles to hire, key milestones etc.)
+Our primary objective is to fund research on and implementations of state of the art compiler verification methods by a security researcher.
+
+The goals are to:
+
+Test the correctness of the Vyper compiler, searching for any potential bytecode and source code semantic divergences.
+Mitigate systemic risk in the core infrastructure. This is particularly important as a compiler issue could potentially endanger the entire ecosystem.
+Automate and expand our testing processes to reduce costs associated with audits and decrease development time.
+
 
 ### Milestones
 
-Please submit your milestones supporting your grant request by clicking [+ Add a milestone] below. They should be broken down into individual milestone steps (no more than 5) that include measurable metrics, and the basic scope of the work being done for both Product Development and Adoption. 
+Implementation of a definitional interpreter (3 months) - 20k MATIC
+Vyper program generator (2 months) - 20k MATIC
+Differential fuzzing against the interpreter (1 month) - 10k MATIC
+
+Metrics:
+
+Number of bugs and vulnerabilities detected and fixed through the new verification methods
+Reduction in occurence of high severity bugs (based on audits and bug bounty results before and after completion of the project)
+Increase in test coverage percentage for the Vyper compiler codebase
